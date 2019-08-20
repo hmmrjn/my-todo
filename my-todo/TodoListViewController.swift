@@ -19,7 +19,17 @@ class TodoListViewController: UIViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "todoCell")
         tableView.dataSource = self
+        
+        let createButton = UIBarButtonItem(barButtonSystemItem: .add,
+                                           target: self,
+                                           action: #selector(createTodoButtonDidTap))
+        navigationItem.rightBarButtonItem = createButton
         todoList.append(Todo(title: "洗濯"))
+    }
+    
+    @objc func createTodoButtonDidTap() {
+        let createView = UINavigationController(rootViewController: CreateTodoViewController())
+        present(createView, animated: true, completion: nil)
     }
 
 }

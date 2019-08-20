@@ -12,6 +12,8 @@
 		BF34597C230BF62000D3404C /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34597A230BF62000D3404C /* TodoListViewController.swift */; };
 		BF34597D230BF62000D3404C /* TodoListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF34597B230BF62000D3404C /* TodoListViewController.xib */; };
 		BF34597F230C003900D3404C /* todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF34597E230C003900D3404C /* todo.swift */; };
+		BF345982230C032100D3404C /* CreateTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF345980230C032100D3404C /* CreateTodoViewController.swift */; };
+		BF345983230C032100D3404C /* CreateTodoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF345981230C032100D3404C /* CreateTodoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		BF34597A230BF62000D3404C /* TodoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewController.swift; sourceTree = "<group>"; };
 		BF34597B230BF62000D3404C /* TodoListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoListViewController.xib; sourceTree = "<group>"; };
 		BF34597E230C003900D3404C /* todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = todo.swift; sourceTree = "<group>"; };
+		BF345980230C032100D3404C /* CreateTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTodoViewController.swift; sourceTree = "<group>"; };
+		BF345981230C032100D3404C /* CreateTodoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateTodoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +64,8 @@
 				BF34597A230BF62000D3404C /* TodoListViewController.swift */,
 				BF34597B230BF62000D3404C /* TodoListViewController.xib */,
 				BF34597E230C003900D3404C /* todo.swift */,
+				BF345980230C032100D3404C /* CreateTodoViewController.swift */,
+				BF345981230C032100D3404C /* CreateTodoViewController.xib */,
 			);
 			path = "my-todo";
 			sourceTree = "<group>";
@@ -122,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF345983230C032100D3404C /* CreateTodoViewController.xib in Resources */,
 				BF34597D230BF62000D3404C /* TodoListViewController.xib in Resources */,
 				BF345970230BF3FF00D3404C /* Assets.xcassets in Resources */,
 			);
@@ -136,6 +143,7 @@
 			files = (
 				BF34597F230C003900D3404C /* todo.swift in Sources */,
 				BF34597C230BF62000D3404C /* TodoListViewController.swift in Sources */,
+				BF345982230C032100D3404C /* CreateTodoViewController.swift in Sources */,
 				BF345969230BF3FE00D3404C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
