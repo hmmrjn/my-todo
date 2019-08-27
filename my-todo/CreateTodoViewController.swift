@@ -37,7 +37,7 @@ class CreateTodoViewController: UIViewController {
     }
     
     @objc func createTodoButtonDidTap() {
-        if let todoTitle = todoTitle {
+        if let todoTitle = textField.text {
             delegate?.controller(self, didCreateTodo: Todo(title: todoTitle))
         }
         dismiss(animated: true, completion: nil)
@@ -47,7 +47,6 @@ class CreateTodoViewController: UIViewController {
 
 extension CreateTodoViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        todoTitle = textField.text
         return true
     }
 }
