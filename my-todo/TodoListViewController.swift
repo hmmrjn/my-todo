@@ -12,7 +12,11 @@ class TodoListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var todoList: [Todo] = []
+    var todoList: [Todo] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +32,11 @@ class TodoListViewController: UIViewController {
     }
     
     @objc func createTodoButtonDidTap() {
-        let createView = UINavigationController(rootViewController: CreateTodoViewController())
-        present(createView, animated: true, completion: nil)
+        let createView = CreateTodoViewController()
+        createView.delegate = self
+        present(UINavigationController(rootViewController: createView),
+                animated: true,
+                completion: nil)
     }
 
 }
@@ -44,5 +51,11 @@ extension TodoListViewController: UITableViewDataSource {
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = todoList[indexPath.row].title
         return cell
+    }
+}
+
+extension TodoListViewController: CreateTodoViewControllerDelegate {
+    func controller(_ controller: CreateTodoViewController, didCreateTodo todo: Todo) {
+        todoList.append(todo)
     }
 }
