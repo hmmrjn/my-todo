@@ -26,7 +26,7 @@ class CreateTodoViewController: UIViewController {
                                                     style: .done,
                                                     target: self,
                                                     action: #selector(createTodoButtonDidTap))
-    var delegate: CreateTodoViewControllerDelegate?
+    weak var delegate: CreateTodoViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
