@@ -10,6 +10,7 @@ import UIKit
 
 class CreateTodoViewController: UIViewController {
     
+    @IBOutlet weak var textField: UITextField!
     lazy var createButton = UIBarButtonItem(title: "Summon",
                                                     style: .done,
                                                     target: self,
@@ -19,10 +20,19 @@ class CreateTodoViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.rightBarButtonItem = createButton
+        
+        textField.delegate = self
     }
     
     @objc func createTodoButtonDidTap() {
         dismiss(animated: true, completion: nil)
     }
 
+}
+
+extension CreateTodoViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        print(textField.text ?? "")
+        return true
+    }
 }
