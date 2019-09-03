@@ -23,6 +23,7 @@ class TodoListViewController: UIViewController {
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "todoCell")
         tableView.dataSource = self
+        tableView.delegate = self
         
         let createButton = UIBarButtonItem(barButtonSystemItem: .add,
                                            target: self,
@@ -41,7 +42,7 @@ class TodoListViewController: UIViewController {
 
 }
 
-extension TodoListViewController: UITableViewDataSource {
+extension TodoListViewController: UITableViewDelegate, UITableViewDataSource {
     func  tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todoList.count
     }
@@ -53,14 +54,22 @@ extension TodoListViewController: UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+        // 全部削除可能な行にする
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let doneButton = UITableViewRowAction(style: .normal, title: "Done") { _, _ in
             tableView.beginUpdates()
-            todoList.remove(at: indexPath.row)
+            self.todoList.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
             // beginUpdate endUpdate: 画面をさわれない時間を作らない
         }
+        doneButton.backgroundColor = UIColor.blue
+        
+        return [doneButton]
     }
 }
 
