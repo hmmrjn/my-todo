@@ -52,6 +52,16 @@ extension TodoListViewController: UITableViewDataSource {
         cell.textLabel?.text = todoList[indexPath.row].title
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            todoList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+            // beginUpdate endUpdate: 画面をさわれない時間を作らない
+        }
+    }
 }
 
 extension TodoListViewController: CreateTodoViewControllerDelegate {
