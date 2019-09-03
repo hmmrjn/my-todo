@@ -12,11 +12,7 @@ class TodoListViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var todoList: [Todo] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    var todoList: [Todo] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +78,9 @@ extension TodoListViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension TodoListViewController: CreateTodoViewControllerDelegate {
     func controller(_ controller: CreateTodoViewController, didCreateTodo todo: Todo) {
+        tableView.beginUpdates()
+        tableView.insertRows(at: [IndexPath(row: todoList.count, section: 0)], with: .automatic)
         todoList.append(todo)
+        tableView.endUpdates()
     }
 }
