@@ -69,7 +69,14 @@ extension TodoListViewController: UITableViewDelegate, UITableViewDataSource {
         }
         doneButton.backgroundColor = UIColor.blue
         
-        return [doneButton]
+        let deleteButton = UITableViewRowAction(style: .destructive, title: "Delete") { _, _ in
+            tableView.beginUpdates()
+            self.todoList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
+        
+        return [deleteButton, doneButton]
     }
 }
 
